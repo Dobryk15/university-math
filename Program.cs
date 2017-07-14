@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace PracticMethodPothential
 {
-
     class cell
     {
         public const int M = 1000000;
@@ -95,17 +94,12 @@ namespace PracticMethodPothential
             if (sum1 != sum2)
             {
                 if (sum1 < sum2)
-                {
                     a.Add(sum2 - sum1);
-                }
                 else
-                {
                     b.Add(sum1 - sum2);
-                }
             }
 
             cost = new int[a.Count, b.Count];
-
             string[] tmp = new string[n];
 
             for (int i = 0; i < m; ++i)
@@ -122,15 +116,6 @@ namespace PracticMethodPothential
             for (int i = 0; i < m; ++i)
                 for (int j = 0; j < n; ++j)
                     table[i, j] = new cell(i, j, cost[i, j], M, M, M, M);
-            //x = new int[m, n];
-            //d = new int[m, n];
-            /*for (int i = 0; i < m; ++i)
-            {
-                for (int j = 0; j < n; ++j)
-                    Console.Write(cost[i, j]);
-                Console.WriteLine();
-            }
-            Console.WriteLine("m - {0}; n - {1} ", m, n);*/
         }
 
         static void Nord_West_Angle()
@@ -169,10 +154,9 @@ namespace PracticMethodPothential
                     ++i;
                 }
 
-                while (count < (m + n - 1))      //дописати
-                {
+                //закінчити цю частину
+                while (count < (m + n - 1))     
                     count++;
-                }
             }
         }
 
@@ -523,9 +507,7 @@ namespace PracticMethodPothential
                         {
                             str = table[i, j].x.ToString();
                             while(str.Length!=3)
-                            {
                                 str += ' ';
-                            }
                                 writer.Write(str);
                         }
                         else writer.Write("M  ");
