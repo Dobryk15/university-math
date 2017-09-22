@@ -1,0 +1,8 @@
+Words with only vowels:
+a
+aaa
+aaaa
+uou
+uouoooo
+ее
+оаэ
