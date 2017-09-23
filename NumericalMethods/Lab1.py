@@ -120,6 +120,16 @@ c = np.linalg.solve(np.array(matrixA), np.array(b_array))
 my_print(matrixA)
 print("c:", c)
 
+def product(M, v):
+	res = []
+	for row in M:
+		tmp = 0
+		for i in range(0,n):
+			tmp+=c[i]*row[i]
+		res.append(tmp)
+
+product(matrixA, b_array)
+
 def approximate_u(x):
 	res = 0
 	for i in range(0,n):
