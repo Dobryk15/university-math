@@ -7,8 +7,8 @@ x = Symbol('x')
 # t = Symbol('t')
 
 N = 20
-R = 0.01
-T = 10*60
+R = 10
+T = 15*60
 
 u0 = 273
 u_kr = 173
@@ -22,6 +22,8 @@ gamma = 58.2 # Bт/(м^2*K)
 
 mu2_ = (u_env - u_kr) * gamma * R / u_kr / lamda
 
+def mu2_(t, sigma):
+    return (sin(0.01*(t + sigma * tau)) - u_kr + u_env) * gamma * R / u_kr / lamda
 # mu2_ = 0
 
 gamma1 = gamma * R / lamda
@@ -83,7 +85,7 @@ def get_next_layer(y_prev, layer):
     cN = - sigma * tau * beta2 / h - alpha2 * xN_ / 2 - dN
     
     phiN = (1 - sigma) * tau * beta2 * y_prev[N] / h \
-        - tau * mu2_ / h \
+        - tau * mu2_(layer, sigma) / h \
         - alpha2 * xN_ * y_prev[N] / 2 \
         + (1 - sigma) * tau * alpha2 * pi(N) * (y_prev[N] - y_prev[N - 1]) / h / h 
 
